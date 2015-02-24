@@ -3,10 +3,6 @@ package crypto;
 import java.util.Calendar;
 import java.util.TimeZone;
 
-import org.json.simple.JSONObject;
-import org.json.simple.JSONValue;
-import org.json.simple.parser.JSONParser;
-
 public final class Constants {
 
     public static final int BLOCK_HEADER_LENGTH = 232;
@@ -93,10 +89,7 @@ public final class Constants {
                                                         is set as number of seconds before the current time. */
 
     public static final int EC_BLOCK_DISTANCE_LIMIT = 60;
-    
-    
-    public static final JSONObject JSON_DEF = (JSONObject) JSONValue.parse("{\"errorCode\":\"json not defined\"}");
-    
+        
     public static final byte TYPE_PAYMENT = 0;
     public static final byte TYPE_MESSAGING = 1;
     public static final byte TYPE_COLORED_COINS = 2;
