@@ -7,9 +7,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.math.BigInteger;
 import java.security.SecureRandom;
 import java.util.Scanner;
 
+import org.json.simple.JSONObject;
+
+import crypto.Base62;
 import crypto.Convert;
 import crypto.Crypto;
 
@@ -70,6 +74,21 @@ public class Backend {
 		accountId = Convert.fullHashToId(Crypto.sha256().digest(publicKey));
 		accountRS = Convert.rsAccount(accountId);
 		System.out.println(accountRS);
+	}
+	
+	public String getAccountRS()
+	{
+		return accountRS;
+	}
+	
+	public boolean unzip(String base)
+	{
+		base = base.substring(3);
+		// change from base 62 to byte array
+		BigInteger bi = Base62.decodeBigInteger(base);
+		byte[] bytes = bi.toByteArray();
+		System.out.println(Convert.toHexString(bytes));
+		return true;
 	}
 	
 }
