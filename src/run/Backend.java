@@ -81,14 +81,16 @@ public class Backend {
 		return accountRS;
 	}
 	
-	public boolean unzip(String base)
+	public byte[] unzip(String base)
 	{
 		base = base.substring(3);
 		// change from base 62 to byte array
 		BigInteger bi = Base62.decodeBigInteger(base);
 		byte[] bytes = bi.toByteArray();
+		System.out.println(bytes[0]);
 		System.out.println(Convert.toHexString(bytes));
-		return true;
+		
+		return bytes;
 	}
 	
 }
